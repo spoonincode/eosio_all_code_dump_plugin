@@ -45,7 +45,7 @@ void all_code_dump_plugin::dump(string dir) {
          continue;
       boost::filesystem::ofstream ofs(dump_dir / (a.name.to_string()+".wasm"), std::ofstream::binary);
       if(ofs)
-         ofs << a.code;
+         ofs.write(a.code.data(), a.code.size());
    }
 }
 
